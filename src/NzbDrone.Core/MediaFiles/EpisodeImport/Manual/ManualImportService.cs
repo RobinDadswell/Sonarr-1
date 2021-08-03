@@ -254,12 +254,18 @@ namespace NzbDrone.Core.MediaFiles.EpisodeImport.Manual
                     localEpisode.Language = LanguageParser.ParseLanguage(file);
                     localEpisode.Size = _diskProvider.GetFileSize(file);
 
-                    return MapItem(new ImportDecision(localEpisode, new Rejection("Unknown Series")), rootFolder,
-                        downloadId, null);
+                    return MapItem(new ImportDecision(localEpisode,
+                        new Rejection("Unknown Series")),
+                        rootFolder,
+                        downloadId,
+                        null);
                 }
 
-                var importDecisions = _importDecisionMaker.GetImportDecisions(new List<string> {file}, series,
-                    trackedDownload?.DownloadItem, null, SceneSource(series, baseFolder));
+                var importDecisions = _importDecisionMaker.GetImportDecisions(new List<string> { file },
+                    series,
+                    trackedDownload?.DownloadItem,
+                    null,
+                    SceneSource(series, baseFolder));
 
                 if (importDecisions.Any())
                 {
@@ -309,7 +315,7 @@ namespace NzbDrone.Core.MediaFiles.EpisodeImport.Manual
             if (downloadId.IsNotNullOrWhiteSpace())
             {
                 var trackedDownload = _trackedDownloadService.Find(downloadId);
-                
+
                 return trackedDownload;
             }
 
@@ -450,7 +456,7 @@ namespace NzbDrone.Core.MediaFiles.EpisodeImport.Manual
 
                 var allEpisodesImported = groupedTrackedDownload.Select(c => c.ImportResult)
                                                                     .Where(c => c.Result == ImportResultType.Imported)
-                                                                   .SelectMany(c => c.ImportDecision.LocalEpisode.Episodes).Count() >= 
+                                                                   .SelectMany(c => c.ImportDecision.LocalEpisode.Episodes).Count() >=
                                                                                 Math.Max(1, trackedDownload.RemoteEpisode.Episodes.Count);
 
                 if (allEpisodesImported)

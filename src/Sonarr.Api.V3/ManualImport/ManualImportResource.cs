@@ -32,7 +32,10 @@ namespace Sonarr.Api.V3.ManualImport
     {
         public static ManualImportResource ToResource(this ManualImportItem model)
         {
-            if (model == null) return null;
+            if (model == null)
+            {
+                return null;
+            }
 
             return new ManualImportResource
             {
@@ -47,6 +50,7 @@ namespace Sonarr.Api.V3.ManualImport
                 Episodes = model.Episodes.ToResource(),
                 Quality = model.Quality,
                 Language = model.Language,
+
                 //QualityWeight
                 DownloadId = model.DownloadId,
                 Rejections = model.Rejections

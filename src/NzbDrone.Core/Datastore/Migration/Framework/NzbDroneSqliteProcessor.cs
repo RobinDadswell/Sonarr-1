@@ -23,7 +23,6 @@ namespace NzbDrone.Core.Datastore.Migration.Framework
                                        IServiceProvider serviceProvider)
         : base(factory, generator, logger, options, connectionStringAccessor, serviceProvider)
         {
-
         }
 
         public override void Process(AlterColumnExpression expression)

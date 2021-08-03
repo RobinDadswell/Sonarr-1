@@ -24,7 +24,6 @@ namespace NzbDrone.Core.History
 
     public class HistoryRepository : BasicRepository<EpisodeHistory>, IHistoryRepository
     {
-
         public HistoryRepository(IMainDatabase database, IEventAggregator eventAggregator)
             : base(database, eventAggregator)
         {
@@ -91,8 +90,8 @@ namespace NzbDrone.Core.History
                  h.Quality == quality &&
                  (h.EventType == EpisodeHistoryEventType.Grabbed ||
                  h.EventType == EpisodeHistoryEventType.DownloadFailed ||
-                 h.EventType == EpisodeHistoryEventType.DownloadFolderImported)
-                 ).ToList();
+                 h.EventType == EpisodeHistoryEventType.DownloadFolderImported))
+                 .ToList();
         }
 
         public void DeleteForSeries(int seriesId)

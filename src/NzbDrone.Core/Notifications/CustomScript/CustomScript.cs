@@ -163,7 +163,6 @@ namespace NzbDrone.Core.Notifications.CustomScript
             environmentVariables.Add("Sonarr_EpisodeFile_QualityVersion", episodeFile.Quality.Revision.Version.ToString());
             environmentVariables.Add("Sonarr_EpisodeFile_ReleaseGroup", episodeFile.ReleaseGroup ?? string.Empty);
             environmentVariables.Add("Sonarr_EpisodeFile_SceneName", episodeFile.SceneName ?? string.Empty);
-
         }
 
         public override void OnSeriesDelete(SeriesDeleteMessage deleteMessage)

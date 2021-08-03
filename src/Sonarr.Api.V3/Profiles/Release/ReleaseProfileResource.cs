@@ -29,7 +29,10 @@ namespace Sonarr.Api.V3.Profiles.Release
     {
         public static ReleaseProfileResource ToResource(this ReleaseProfile model)
         {
-            if (model == null) return null;
+            if (model == null)
+            {
+                return null;
+            }
 
             return new ReleaseProfileResource
             {
@@ -47,7 +50,10 @@ namespace Sonarr.Api.V3.Profiles.Release
 
         public static ReleaseProfile ToModel(this ReleaseProfileResource resource)
         {
-            if (resource == null) return null;
+            if (resource == null)
+            {
+                return null;
+            }
 
             return new ReleaseProfile
             {
