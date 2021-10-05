@@ -22,6 +22,8 @@ namespace Sonarr.Api.V3.Profiles.Release
             Ignored = new List<string>();
             Preferred = new List<KeyValuePair<string, int>>();
             Tags = new HashSet<int>();
+            Required = new List<string>();
+            Ignored = new List<string>();
         }
     }
 
